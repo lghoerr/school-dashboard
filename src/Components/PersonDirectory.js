@@ -6,6 +6,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import TableContainer from '@material-ui/core/TableContainer';
+import Input from '@material-ui/core/Input';
 
 const PersonDirectory = () => {
 
@@ -45,7 +46,7 @@ const PersonDirectory = () => {
     return (
         <div>
             <h2>School Directory</h2>
-            <input
+            <Input
                 type="text"
                 placeholder="teacher"
                 value={searchTermTeacher}
@@ -73,7 +74,7 @@ const PersonDirectory = () => {
                 </Table>
             </TableContainer>
             <br />
-            <input
+            <Input
                 type="text"
                 placeholder="student"
                 value={searchTermStudent}
