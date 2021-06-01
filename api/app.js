@@ -15,10 +15,24 @@ app.get("/teachers", (req, res) => {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((teacher) => {
-        teachers.push({...teacher.data(), id: teacher.id});
+        teachers.push({ ...teacher.data(), id: teacher.id });
       });
     })
     .then(() => res.json(teachers));
+});
+
+app.post("/teachers", (req, res) => {
+  const teacher = {
+    name: req.body.name,
+    address: req.body.address,
+    DOB: req.body.DOB,
+    email: `${req.body.name.replace(/\s/g, '').toLowerCase()}@lcps.k12.va.us`,
+    class: req.body.class,
+  };
+
+  db.collection("Teachers")
+    .add(teacher)
+    .then((docRef) => res.json({ ...teacher, id: docRef.id }));
 });
 
 app.get("/students", (req, res) => {
