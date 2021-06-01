@@ -84,15 +84,12 @@ const Navbar = () => {
           <NavLink to="/classes" activeStyle>
             Class List
           </NavLink>
-          <NavLink to="/teacher" activeStyle>
-            Teachers
-          </NavLink>
           <NavLink to="/directory" activeStyle>
             Directory
           </NavLink>
         </NavMenu>
         <NavBtn>
-          <NavBtnLink to="/signin">Sign In</NavBtnLink>
+          <NavBtnLink to="/sign_in">Sign In</NavBtnLink>
         </NavBtn>
       </Nav>
     </>
