@@ -1,14 +1,13 @@
-import './App.css';
-import login from "./Login.js";
-import Navbar from "./Navbar";
+import "./App.css";
+import Navbar from "./Components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HomePage from './Components/HomePage.js';
+import HomePage from "./Components/HomePage.js";
 
 function App() {
   return (
     <Router>
       <Navbar />
-        <HomePage />
+      <HomePage />
     </Router>
   );
 }
