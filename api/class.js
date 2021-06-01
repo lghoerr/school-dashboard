@@ -14,15 +14,25 @@ const ClassController = (app, db) => {
   app.post("/classes", (req, res) => {
     const cls = {
       teacher: req.body.teacher,
-      student: req.body.address,
-      DOB: req.body.DOB,
-      email: `${req.body.name.replace(/\s/g, "").toLowerCase()}@lcps.k12.va.us`,
-      class: req.body.class,
+      students: req.body.students,
+      room: req.body.room,
     };
 
     db.collection("Classes")
-      .add(teacher)
-      .then((docRef) => res.json({ ...teacher, id: docRef.id }));
+      .add(cls)
+      .then((docRef) => res.json({ ...cls, id: docRef.id }));
+  });
+
+  app.delete("/classes/:id", (req, res) => {
+    db.collection("Classes")
+      .doc(req.params.id)
+      .delete()
+      .then(() => {
+        res.json({ msg: `Class with ID ${req.params.id} deleted` });
+      })
+      .catch(() => {
+        res.status(400).json({ msg: `Error deleting class` });
+      });
   });
 };
 
