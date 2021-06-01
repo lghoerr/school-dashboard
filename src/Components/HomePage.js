@@ -16,7 +16,7 @@ const HomePage = () => {
     return (
         <div>
         <div style={{textAlign:"center"}}>
-            <h1>Thomas Jefferson High School</h1>
+            <h1>Thomas Jefferson Elementary School</h1>
         </div>
         <div style={{float:"left"}}>
             <img src={tjes} alt="school-pic" style={{width:680,height:300, marginLeft:20, marginRight:20}}></img>
