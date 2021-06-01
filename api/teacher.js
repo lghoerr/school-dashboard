@@ -38,4 +38,4 @@ const TeacherController = (app, db) => {
   });
 };
 
-module.exports = TeacherController
+module.exports = TeacherController;

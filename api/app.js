@@ -10,33 +10,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 const TeacherController = require('./teacher.js')
+const ClassController = require('./class.js')
+const StudentController = require('./student.js')
+
 TeacherController(app, db)
-
-app.get("/students", (req, res) => {
-  const students = [];
-  db.collection("Students")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((student) => {
-        students.push(student.data());
-      });
-    })
-    .then(() => res.json(students));
-});
-
-app.get("/classes", (req, res) => {
-  const classes = [];
-  db.collection("Classes")
-    .get()
-    .then((querySnapshot) => {
-      querySnapshot.forEach((cls) => {
-        classes.push(cls.data());
-      });
-    })
-    .then(() => res.json(classes));
-});
+ClassController(app, db)
+StudentController(app, db)
 
 app.listen(port, () => {
-  console.log(`School dashboard app listening at http://localhost:${port}`);
+  console.log(`Example app listening at http://localhost:${port}`);
 });
-
